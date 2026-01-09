@@ -1,0 +1,89 @@
+/* ROUNDED THEME FOR ROFI */
+/* Author: Newman Sanchez (https://github.com/newmanls) */
+@import "~/.local/share/rofi/themes/custom.rasi"
+* {
+    font:   "Google Sans Flex 12", "JetbrainsMono Nerd Font Propo 12";
+    background-color:   transparent;
+    text-color:         @fg0;
+    margin:     0px;
+    padding:    0px;
+    spacing:    0px;
+}
+configuration {
+    show-icons: true;
+}
+window {
+    location:       south;
+    y-offset:       -50;
+    x-offset:       20;
+    width:          80%;
+    height:         60%;  /* Limit maximum height */
+    border-radius:  10px;
+    background-color:   @bg0;
+}
+mainbox {
+    padding:    12px;
+}
+inputbar {
+    background-color:   @bg1;
+    border-color:       @bg3;
+    border:         0px;
+    border-radius:  10px;
+    padding:    8px 16px;
+    spacing:    8px;
+    children:   [ prompt, entry ];
+}
+prompt {
+    text-color: @fg2;
+}
+entry {
+    placeholder:        "Search";
+    placeholder-color:  @fg3;
+}
+message {
+    margin:             12px 0 0;
+    border-radius:      50px;
+    border-color:       @bg2;
+    background-color:   @bg2;
+}
+textbox {
+    padding:    8px 24px;
+}
+listview {
+    background-color:   transparent;
+    margin:     12px 0 0;
+    lines:      6;  /* Maximum rows to prevent going off-screen */
+    columns:    4;
+    fixed-height: false;
+    dynamic: true;
+    cycle: false;
+    scrollbar: true;
+}
+element {
+    padding:        12px 8px;
+    spacing:        6px;
+    border-radius:  10px;
+    orientation:    vertical;
+}
+element normal active {
+    text-color: @bg3;
+}
+element alternate active {
+    text-color: @bg3;
+}
+element selected normal, element selected active {
+    background-color:   @bg3;
+}
+element-icon {
+    size:           4em;
+    horizontal-align: 0.5;
+    margin:         0px 0px 6px 0px;
+    border-radius:  8px;  /* Round the thumbnail corners */
+}
+element-text {
+    text-color: inherit;
+    horizontal-align: 0.5;
+    font-size: 9px;
+    width: 100%;
+    /* Hide the full path, only show filename */
+}

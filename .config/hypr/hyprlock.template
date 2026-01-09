@@ -1,0 +1,29 @@
+background {
+    path = "@WALLPATH@"
+    blur_size = 8
+    brightness = 0.8
+}
+
+timestr {
+    format = "%H:%M"
+    font_size = 90
+    font_color = "@COLOR2@"
+    position = "0, 80"
+}
+
+label {
+    text = $USER
+    font_color = "@COLOR3@"
+    font_size = 28
+    position = "0, 200"
+}
+
+input-field {
+    size = "300, 60"
+    position = "0, -200"
+    rounding = 12
+    inner_color = "@COLOR0@"
+    outer_color = "@COLOR1@"
+    font_color = "@COLOR3@"
+}
+

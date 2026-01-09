@@ -1,0 +1,45 @@
+# Caches & state
+**/Cache/
+**/cache/
+**/GPUCache/
+**/logs/
+**/*.log
+
+# Electron junk
+**/Code Cache/
+**/IndexedDB/
+**/Local Storage/
+**/Session Storage/
+
+# Secrets & machine-specific
+**/dconf/
+**/pulse/
+**/systemd/
+**/OpenRGB/
+**/VeraCrypt/
+
+# Browsers & chat apps
+chromium/
+Discord/
+discord/
+Slack/
+spotify/
+Electron/
+
+# Games
+UNDERTALE/
+StardewValley/
+Minecraft Linux Launcher/
+
+# Random garbage
+glib-2.0/
+configstore/
+unity3d/
+flutter/
+arduino-ide/
+Arduino IDE/
+
+# FISH
+.config/fish/fish_variables
+.config/fish/generated_completions/
+
