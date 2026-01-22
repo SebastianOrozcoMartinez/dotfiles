@@ -1,0 +1,55 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 34,
+  "modules-left": [],
+  "modules-center": ["clock", "hyprland/workspaces", "custom/spotify", "network", "wireplumber", "battery"],
+  "modules-right": [],
+
+  "clock": {
+    "format": "{:%I:%M %p}"
+  },
+
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "active": "󱓻",
+      "urgent": "󱓻"
+    }
+  },
+
+  "network": {
+    "format-wifi": "{icon}",
+    "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰖪",
+    "interval": 5
+  },
+
+  "wireplumber": {
+    "format": "{icon}",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "default": ["󰖀","󰕾",""],
+      "bluetooth": "󰂰"
+    },
+    "on-click": "pamixer -t",
+    "scroll-step": 1
+  },
+
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "interval": 5,
+    "states": { "warning": 20, "critical": 10 }
+  },
+
+  "custom/spotify": {
+    "exec": "~/.config/waybar/scripts/spotify.sh",
+    "interval": 2,
+    "on-click": "playerctl play-pause",
+    "tooltip": false
+  }
+}
+
