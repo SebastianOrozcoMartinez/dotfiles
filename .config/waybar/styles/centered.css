@@ -1,23 +1,55 @@
-#clock,
-#hyprland-workspaces,
-#spotify,
-#network,
-#wireplumber,
-#battery {
-  margin-left: -1px; /* overlap slightly to merge */
-  margin-right: -1px;
-  padding: 6px 20px;
-  border-radius: 25px; /* full pill */
-  background-color: @color0;
-  color: @foreground;
-  font-weight: bold;
+@import url("file:///home/sebas2/.cache/wal/colors-waybar.css");
+
+window#waybar {
+  background: transparent;
+  font-family: "Google Sans Flex", "JetBrainsMono Nerd Font Propo";
 }
 
-/* Remove internal workspaces pills */
-#hyprland-workspaces button {
-  padding-left: 8px;
-  padding-right: 8px;
+#clock {
+  color: @color4;
+  font-weight: bold;
+  padding: 0 6px;
+}
+
+#workspaces,
+#network {
+  color: @color6;
+  padding: 0 6px;
+}
+
+#wireplumber {
+  color: @color5;
+  padding: 0 6px;
+}
+#battery {
+  background: transparent;
+  padding: 0 6px;
+}
+
+#custom-spotify {
+  color: @color7;
+  padding: 0 6px;
+}
+
+#workspaces button {
+  padding: 0 8px;
   border-radius: 0;
-  background-color: transparent;
+  background: transparent;
   color: @foreground;
+}
+
+#workspaces button.active {
+  color: @color4;
+}
+
+.modules-center {
+  background: @background;
+  padding: 6px 12px;
+  border-radius: 12px;
+}
+
+.modules-right {
+  background: @background;
+  padding: 6px 12px;
+  border-radius: 12px;
 }

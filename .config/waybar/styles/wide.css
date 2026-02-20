@@ -26,31 +26,17 @@ window#waybar {
 }
 
 #workspaces button:hover {
-
   background-color: @color7;
 
   color: @background;
-
 }
 
-
-
 #workspaces button.active {
-
-
-
   padding: 6px 24px; /* Increased padding to make it bigger */
-
-
 
   background-color: @foreground;
 
-
-
   color: @background;
-
-
-
 }
 
 #workspaces button.urgent {

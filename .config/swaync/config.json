@@ -46,6 +46,7 @@
     "mpris",
     "title",
     "dnd",
+    "volume",
     "notifications"
   ],
   "widget-config": {
@@ -94,5 +95,6 @@
         
       ]
     }
-  }
+  },
+  "osd": true
 }

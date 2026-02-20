@@ -1,25 +1,17 @@
 {
   "layer": "top",
   "position": "top",
+  "margin-top": 18,
+  "margin-right": 18,
   "height": 34,
-  "spacing": 0,
+  "hide-on-fullscreen": true,
 
-  "modules-left": [
-    "hyprland/workspaces"
-  ],
+  "modules-center": ["clock", "custom/spotify", "hyprland/workspaces", "network", "wireplumber", "battery"],
+  "modules-right": ["tray"],
 
-  "modules-center": [
-    "clock"
-  ],
-
-  "modules-right": [
-    "custom/discord",
-    "memory",
-    "network",
-    "wireplumber",
-    "battery",
-    "custom/notifications",
-  ],
+  "clock": {
+    "format": "{:%I:%M %p}"
+  },
 
   "hyprland/workspaces": {
     "on-click": "activate",
@@ -31,26 +23,14 @@
     }
   },
   
-  "battery": {
-    "format": "{icon}",
-    "format-icons": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
-    "tooltip-format": "{capacity}% ({timeTo})",
-    "interval": 5,
-    "states": {
-      "warning": 20,
-      "critical": 10
-    }
-  },
-
-  "clock": {
-    "format": "{:%I:%M %p}",
-    "format-alt": "{:%a, %d %b %Y}"
+  "tray": {
+    "spacing": 10,
   },
 
   "network": {
     "format-wifi": "{icon}",
     "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
-    "format-ethernet": "󰀂",
+    "format-ethernet": "󰈀",
     "format-disconnected": "󰖪",
     "interval": 5
   },
@@ -60,53 +40,23 @@
     "format-muted": "󰝟",
     "format-icons": {
       "default": ["󰖀","󰕾",""],
+      "bluetooth": "󰂰"
     },
     "on-click": "pamixer -t",
     "scroll-step": 1
   },
 
-  "custom/discord": {
-    "exec": "~/.config/waybar/scripts/discord_unread.sh",
-    "interval": 2,
-    "on-click": "discord",
-    "tooltip": false
-  },
-
   "battery": {
     "format": "{capacity}% {icon}",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "interval": 5,
-    "states": {
-      "warning": 20,
-      "critical": 10
-    }
+    "states": { "warning": 20, "critical": 10 }
   },
 
-  "tray": {
-    "spacing": 8
-  },
-
-  "custom/logo": {
-    "format": "  ",
-    "tooltip": false
-  },
-
-  "custom/power": {
-    "format": "󰤆",
-    "tooltip": false
-  },
-
-  "custom/notifications": {
-    "exec": "swaync-client -swb",
-    "return-type": "json",
-    "format": "{icon}",
-    "format-icons": {
-      "notification": "󱅫",
-      "none": "󰂚",
-      "dnd-notification": "󱏧",
-      "dnd-none": "󱏧"
-    },
-    "on-click": "swaync-client -t",
-    "on-click-right": "swaync-client -d",
+  "custom/spotify": {
+    "exec": "~/.config/waybar/scripts/spotify.sh",
+    "interval": 2,
+    "on-click": "playerctl play-pause",
     "tooltip": false
   }
 }

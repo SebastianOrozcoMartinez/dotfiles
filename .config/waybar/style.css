@@ -1,133 +1,55 @@
 @import url("file:///home/sebas2/.cache/wal/colors-waybar.css");
 
-/* GLOBAL */
-* {
-  border: none;
-  border-radius: 0;
-  min-height: 0;
-  font-family: "Google Sans Flex", "JetBrainsMono Nerd Font Propo";
-  font-size: 13px;
-}
-
-/* BAR */
 window#waybar {
-  background-color: @background;
-  margin: 0 10px;
-}
-
-/* WORKSPACES */
-#workspaces button {
-  padding: 6px 18px;
-  margin: 6px 3px 6px 6px;
-  border-radius: 15px;
-  background-color: @color0;
-  color: @foreground;
-  transition: all 0.3s ease;
-}
-
-#workspaces button:hover {
-
-  background-color: @color7;
-
-  color: @background;
-
-}
-
-
-
-#workspaces button.active {
-
-
-
-  padding: 6px 24px; /* Increased padding to make it bigger */
-
-
-
-  background-color: @foreground;
-
-
-
-  color: @background;
-
-
-
-}
-
-#workspaces button.urgent {
-  background-color: @color1;
-  color: @background;
-}
-
-/* MODULE PILL BASE */
-#memory,
-#battery,
-#network,
-#wireplumber,
-#clock,
-#tray,
-#custom-notifications,
-#custom-power {
-  margin: 6px 3px;
-  padding: 6px 12px;
-  border-radius: 4px;
-  background-color: @color0;
-  color: @foreground;
-}
-
-/* INDIVIDUAL COLORS */
-#memory {
-  background-color: @color3;
-  color: @background;
-}
-
-#battery {
-  background-color: @color1;
-  color: @background;
-}
-
-#battery.charging {
-  background-color: @color2;
-}
-
-#network {
-  background-color: @color6;
-  color: @background;
-}
-
-#wireplumber {
-  background-color: @color5;
-  color: @background;
+  background: transparent;
+  font-family: "Google Sans Flex", "JetBrainsMono Nerd Font Propo";
 }
 
 #clock {
-  background-color: @color4;
-  color: @background;
+  color: @color4;
   font-weight: bold;
+  padding: 0 6px;
 }
 
-#custom-notifications {
-  background-color: @color7;
-  color: @background;
+#workspaces,
+#network {
+  color: @color6;
+  padding: 0 6px;
 }
 
-#custom-power {
-  background-color: @color2;
-  color: @background;
+#wireplumber {
+  color: @color5;
+  padding: 0 6px;
+}
+#battery {
+  background: transparent;
+  padding: 0 6px;
 }
 
-#custom-discord {
-  background-color: @color6;
-  color: @background;
-  border-radius: 4px;
-  margin: 6px 3px;
-  padding: 6px 12px;
-  font-size: 13px;
+#custom-spotify {
+  color: @color7;
+  padding: 0 6px;
 }
 
-/* TOOLTIP */
-tooltip {
-  background-color: @background;
+#workspaces button {
+  padding: 0 8px;
+  border-radius: 0;
+  background: transparent;
   color: @foreground;
-  padding: 10px;
-  border-radius: 6px;
+}
+
+#workspaces button.active {
+  color: @color4;
+}
+
+.modules-center {
+  background: @background;
+  padding: 6px 12px;
+  border-radius: 12px;
+}
+
+.modules-right {
+  background: @background;
+  padding: 6px 12px;
+  border-radius: 12px;
 }

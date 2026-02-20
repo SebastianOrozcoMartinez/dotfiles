@@ -1,13 +1,15 @@
 #!/bin/bash
-# Spotify module for Waybar
+# Spotify-only module for Waybar
 
-status=$(playerctl status 2>/dev/null)
+PLAYER="spotify"
+
+status=$(playerctl --player=$PLAYER status 2>/dev/null)
+
 if [ "$status" = "Playing" ]; then
-  artist=$(playerctl metadata artist 2>/dev/null)
-  title=$(playerctl metadata title 2>/dev/null)
-  echo "$artist - $title"
+  title=$(playerctl --player=$PLAYER metadata title | cut -c1-30)
+  echo "󰓇 $title"
 elif [ "$status" = "Paused" ]; then
-  echo "Paused"
+  echo "󰓇 Paused"
 else
-  echo "Spotify"
+  echo "󰓇 Spotify"
 fi
