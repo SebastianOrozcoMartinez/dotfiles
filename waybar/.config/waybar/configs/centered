@@ -1,0 +1,73 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin-top": 18,
+  "margin-right": 18,
+  "height": 34,
+  "hide-on-fullscreen": true,
+
+  "modules-left": ["clock", "custom/spotify", "custom/weather"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["tray", "network", "wireplumber", "battery"],
+
+  "clock": {
+    "format": "{:%I:%M %p}"
+  },
+
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "urgent": "󱓻",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": ""
+    }
+  },
+  
+  "tray": {
+    "spacing": 10,
+  },
+
+  "network": {
+    "format-wifi": "{icon}",
+    "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰖪",
+    "interval": 5
+  },
+
+  "wireplumber": {
+    "format": "{icon}",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "default": ["",""],
+      "bluetooth": "󰂰"
+    },
+    "on-click": "pamixer -t",
+    "scroll-step": 1
+  },
+
+  "battery": {
+    "format": "{icon}",
+    "format-icons": ["", "", "", ""],
+    "interval": 5,
+    "states": { "warning": 20, "critical": 10 }
+  },
+
+  "custom/spotify": {
+    "exec": "~/.config/waybar/scripts/spotify.sh",
+    "interval": 2,
+    "on-click": "playerctl play-pause",
+    "tooltip": false
+  },
+
+  "custom/weather": {
+    "exec": "~/.config/waybar/scripts/weather.sh",
+    "interval": 1800,
+    "tooltip": false
+  }
+}
+

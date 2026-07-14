@@ -1,0 +1,12 @@
+*.swp
+*.swo
+*~
+.cache/
+.DS_Store
+
+# Secrets
+.env
+*.key
+*.pem
+id_*
+known_hosts

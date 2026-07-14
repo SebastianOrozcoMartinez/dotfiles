@@ -1,0 +1,20 @@
+* {
+    bg0: {color0}CC;
+    bg1: {color1}CC;
+    bg2: {color2}CC;
+    bg3: {color3}CC;
+
+    fg0: {foreground};
+    fg1: {color8};
+    fg2: {color1};
+    fg3: {color2};
+
+    border-color: {color4};
+    selected: {color13};
+
+    color13: {color13};
+}
+
+window {
+    transparency: "real";
+}

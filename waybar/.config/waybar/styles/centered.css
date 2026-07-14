@@ -1,0 +1,83 @@
+@import url("file:///home/sebas/.cache/wal/colors-waybar.css");
+
+window#waybar {
+  background: transparent;
+  font-family: "Google Sans Flex", "JetBrainsMono Nerd Font Propo";
+  font-size: 15.4px;
+}
+
+#clock {
+  color: @color4;
+  font-weight: bold;
+  padding: 0 0px;
+}
+
+#workspaces {
+  color: @color6;
+}
+
+#network {
+  color: @color6;
+  padding: 0 5;
+}
+
+#wireplumber {
+  color: @color5;
+  padding: 0 7;
+  margin-right: 5px;
+}
+#battery {
+  background: transparent;
+  margin-right: 7px;
+  color: @color1;
+}
+
+#custom-spotify {
+  color: @color7;
+  padding: 0 5px;
+  margin-left: 10px;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  border-radius: 0;
+  background: transparent;
+  color: @foreground;
+}
+
+#workspaces button.active {
+  color: @color4;
+}
+
+#tray {
+  padding: 5px;
+}
+
+#clock,
+#custom-spotify,
+#custom-weather {
+  background: alpha(@background, 0.8);
+  border-radius: 12px;
+  padding: 6px 12px;
+}
+
+#custom-weather {
+  margin-left: 12px;
+}
+.modules-left {
+  margin-left: 20px;
+  background: transparent;
+}
+
+.modules-center {
+  background: alpha(@background, 0.8);
+  border-radius: 12px;
+  padding: 0 10 0 10;
+}
+
+.modules-right {
+  background: alpha(@background, 0.8);
+  border-radius: 12px;
+  padding: 6 12;
+  margin: 0;
+}

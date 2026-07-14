@@ -1,0 +1,44 @@
+@import "common.rasi"
+
+configuration {
+    show-icons: false;
+}
+
+window {
+    location: center;
+    width: 480;
+}
+
+inputbar {
+    children: [ entry ];
+}
+
+prompt {
+    text-color: @fg0;
+}
+
+entry {
+    placeholder: "Search";
+    placeholder-color: @fg0;
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+}
+
+element {
+    padding: 8px 16px;
+    spacing: 8px;
+    border-radius: 10px;
+}
+
+element selected normal,
+element selected active {
+    background-color: @selected;
+}
+
+element-icon {
+    size: 1em;
+    vertical-align: 0.5;
+}

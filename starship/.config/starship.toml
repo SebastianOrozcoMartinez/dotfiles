@@ -1,0 +1,17 @@
+add_newline = false
+
+format = """
+[](cyan)\
+$directory\
+[](cyan)\
+$character
+"""
+
+[directory]
+style = "fg:black bg:cyan"
+format = "[ $path ]($style)"
+truncation_length = 3
+
+[character]
+success_symbol = "[❯](cyan)"
+error_symbol = "[❯](red)"

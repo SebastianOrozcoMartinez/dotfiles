@@ -1,0 +1,58 @@
+@import "common.rasi"
+
+configuration {
+    show-icons: true;
+}
+
+window {
+    location: south;
+    width: 80%;
+    height: 60%;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @fg2;
+}
+
+entry {
+    placeholder: "Search";
+    placeholder-color: @fg3;
+}
+
+listview {
+    lines: 6;
+    columns: 4;
+
+    dynamic: true;
+    cycle: false;
+    scrollbar: true;
+}
+
+element {
+    padding: 12px 8px;
+    spacing: 6px;
+    border-radius: 10px;
+    orientation: vertical;
+}
+
+element selected normal,
+element selected active {
+    background-color: @bg3;
+}
+
+element-icon {
+    size: 4em;
+    horizontal-align: 0.5;
+    margin: 0px 0px 6px 0px;
+    border-radius: 8px;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    font-size: 9px;
+    width: 100%;
+}

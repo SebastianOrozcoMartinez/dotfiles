@@ -1,0 +1,70 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin-top": 20,
+    "margin-left": 12,
+    "margin-right": 12,
+    "margin-bottom": 0,
+    "spacing": 6,
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["weather", "backlight", "pulseaudio", "battery", "tray"],
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "", "2": "", "3": "", "4": "󰭹", "5": "",
+            "default": "●",
+            "active": "●",
+            "urgent": "●"
+        },
+        "on-click": "activate",
+        "sort-by-number": true
+    },
+
+    "clock": {
+        "format": "󰃰  {:%H:%M}",
+        "format-alt": "󰃶  {:%a %d %b}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "on-click": "mode"
+    },
+
+    "battery": {
+        "states": { "warning": 30, "critical": 15 },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "󰂄  {capacity}%",
+        "format-plugged": "󰚥  {capacity}%",
+        "format-icons": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+        "tooltip": true
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰝟  muted",
+        "format-icons": {
+            "default": ["󰕿","󰖀","󰕾"]
+        },
+        "on-click": "pavucontrol",
+        "scroll-step": 5
+    },
+
+    "backlight": {
+        "format": "󰃟  {percent}%",
+        "scroll-step": 5,
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-"
+    },
+
+    "tray": {
+        "spacing": 8,
+        "icon-size": 16
+    },
+
+    "custom/weather": {
+        "exec": "curl -s 'https://wttr.in/Guadalajara?format=%c+%t' 2>/dev/null || echo '? --'",
+        "interval": 1800,
+        "format": "{}",
+        "tooltip": false
+    }
+}

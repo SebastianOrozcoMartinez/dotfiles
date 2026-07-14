@@ -1,0 +1,116 @@
+/* cambia "tu-usuario" por tu user real, o mejor usa $HOME si tu waybar lo soporta */
+@import url("/home/sebas2/.cache/wal/colors-waybar.css");
+
+* {
+  font-family: "Google Sans Flex", "Symbols Nerd Font Propo", monospace;
+  font-size: 13px;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+}
+
+window#waybar {
+  background: transparent;
+  color: @foreground;
+}
+
+/* --- islands base --- */
+.modules-left,
+.modules-center,
+.modules-right {
+  background: alpha(@background, 0.8);
+  border-radius: 12px;
+  padding: 4px 10px;
+  margin: 0;
+}
+
+/* cada widget dentro del island */
+#workspaces,
+#clock,
+#battery,
+#pulseaudio,
+#backlight,
+#tray,
+#custom-weather {
+  padding: 2px 10px;
+  color: @foreground;
+}
+
+/* --- workspaces --- */
+#workspaces button {
+  padding: 2px 6px;
+  color: @color8;
+  background: transparent;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+#workspaces button.active {
+  color: @color4;
+  background: alpha(@color4, 0.15);
+}
+
+#workspaces button:hover {
+  background: alpha(@foreground, 0.08);
+  color: @foreground;
+}
+
+#workspaces button.urgent {
+  color: @color1;
+  background: alpha(@color1, 0.15);
+}
+
+/* --- clock --- */
+#clock {
+  color: @color6;
+  font-weight: 500;
+}
+
+/* --- battery --- */
+#battery {
+  color: @color2;
+}
+
+#battery.warning {
+  color: @color3;
+}
+
+#battery.critical {
+  color: @color1;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* --- audio --- */
+#pulseaudio {
+  color: @color5;
+}
+
+#pulseaudio.muted {
+  color: @color8;
+}
+
+/* --- backlight --- */
+#backlight {
+  color: @color3;
+}
+
+/* --- tray --- */
+#tray {
+  padding: 2px 6px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+/* --- weather --- */
+#custom-weather {
+  color: @color6;
+  letter-spacing: 0.03em;
+}
