@@ -47,6 +47,13 @@ function dstow
     stow -t $HOME $argv
 end
 
+function ac
+    arduino-cli compile --fqbn arduino:avr:uno
+end
+function au
+    arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno
+end
+
 # OpenClaw Completion
 test -f "/home/sebas/.openclaw/completions/openclaw.fish"; and source "/home/sebas/.openclaw/completions/openclaw.fish"
 
