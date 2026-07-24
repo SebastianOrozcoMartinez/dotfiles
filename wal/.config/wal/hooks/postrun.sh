@@ -28,3 +28,9 @@ openrgb \
 
 # Obsidian
 "$SCRIPT_DIR/obsidian.sh"
+
+# Kitty
+kitty @ set-colors ~/.cache/wal/colors.ini 2>/dev/null
+
+# Fish (reload starship prompt colors)
+pkill -USR1 fish 2>/dev/null
