@@ -1,11 +1,40 @@
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
+import Quickshell.Hyprland
 import "../components"
 import "../theme"
 
 PanelWindow {
     id: topbarWindow
+
+    property string externalDesc: "XZL XZ3015 0000000000001"
+    property string laptopName: "eDP-1"
+    property bool isTargetScreen: false
+
+    function updateTarget() {
+        var myMonitor = Hyprland.monitorFor(screen);
+        for (var i = 0; i < Quickshell.screens.length; i++) {
+            var m = Hyprland.monitorFor(Quickshell.screens[i]);
+            if (m && m.description === externalDesc) {
+                isTargetScreen = !!(myMonitor && myMonitor.description === externalDesc);
+                return;
+            }
+        }
+        isTargetScreen = !!(screen && screen.name === laptopName);
+    }
+
+    Timer {
+        interval: 200
+        running: true
+        repeat: true
+        onTriggered: topbarWindow.updateTarget()
+    }
+
+    Component.onCompleted: updateTarget()
+    onScreenChanged: updateTarget()
+
+    visible: isTargetScreen
 
     anchors {
         top: true
