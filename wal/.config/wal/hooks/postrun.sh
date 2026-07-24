@@ -18,11 +18,11 @@ pkill swaync || true
 swaync &
 
 # OpenRGB
-COLOR=$(jq -r '.colors.color3' ~/.cache/wal/colors.json | sed 's/^#//')
+COLOR=$(jq -r '.colors.color4' ~/.cache/wal/colors.json | sed 's/^#//')
 
 openrgb \
   --device 0 \
-  --mode "Keystroke Dim" \
+  --mode "Keystroke ripples" \
   --speed 0 \
   --color "$COLOR"
 
