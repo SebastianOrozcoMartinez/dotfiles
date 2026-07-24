@@ -1,18 +1,24 @@
 * {
-    bg0: {color0}CC;
-    bg1: {color1}CC;
-    bg2: {color2}CC;
-    bg3: {color3}CC;
+    background: {background}BF;
+    foreground: {foreground};
+    accent: {color2};
+    primary: {color3};
+    muted: {color4};
+    border-color: {color8}40;
+    alert: {color9};
+
+    bg0: {background}BF;
+    bg1: {background}CC;
+    bg2: {color4}BF;
+    bg3: {color3}BF;
 
     fg0: {foreground};
     fg1: {color8};
-    fg2: {color1};
-    fg3: {color2};
+    fg2: {color4};
+    fg3: {color8};
 
-    border-color: {color4};
-    selected: {color13};
-
-    color13: {color13};
+    selected: {color3};
+    color13: {color3};
 }
 
 window {
