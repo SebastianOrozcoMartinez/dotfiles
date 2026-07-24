@@ -1,17 +1,21 @@
 starship init fish | source
 
-set -gx PATH /home/sebas2/.npm-global/bin $PATH
 set -gx JAVA_HOME /usr/lib/jvm/java-26-openjdk
-set -g fish_greeting
+set -g fish_greeting ""
+set -gx PATH $HOME/.npm-global/bin $HOME/.local/bin $PATH
+
+function __reload_pywal --on-signal USR1
+    source ~/.cache/wal/colors.fish
+    kitty @ set-colors ~/.cache/wal/colors.ini 2>/dev/null
+    starship init fish | source
+end
 
 # Load pywal colors
 if test -e ~/.cache/wal/colors.fish
     source ~/.cache/wal/colors.fish
+    kitty @ set-colors ~/.cache/wal/colors.ini 2>/dev/null
+    starship init fish | source
 end
-
-# Created by `pipx` on 2025-08-21 17:22:22
-set PATH $PATH /home/sebas2/.local/bin
-set -Ux PATH $HOME/.npm-global/bin $PATH
 
 # Alias
 
@@ -21,6 +25,7 @@ alias um "udisksctl unmount -b"
 alias fetch neofetch
 alias s "yay -Ss"
 alias S "yay -S --noconfirm"
+alias wal "wal; source ~/.config/fish/config.fish"
 function venv
     set dir (pwd)
 
@@ -57,7 +62,10 @@ end
 # OpenClaw Completion
 test -f "/home/sebas/.openclaw/completions/openclaw.fish"; and source "/home/sebas/.openclaw/completions/openclaw.fish"
 
-cowsay -f sus "Hi!"
+# Only show fastfetch in first terminal session
+if not pgrep -x fish >/dev/null
+    fastfetch
+end
 
 # Added by Antigravity CLI installer
 set -gx PATH "/home/sebas/.local/bin" $PATH

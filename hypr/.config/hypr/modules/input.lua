@@ -1,0 +1,20 @@
+--  ___                   _
+-- |_ _|_ __  _ __  _   _| |_
+--  | || '_ \| '_ \| | | | __|
+--  | || | | | |_) | |_| | |_
+-- |___|_| |_| .__/ \__,_|\__|
+--           |_|
+-- .lua
+
+return {
+	input = {
+		kb_layout = "us",
+		kb_variant = "altgr-intl",
+
+		follow_mouse = 1,
+
+		touchpad = {
+			natural_scroll = false,
+		},
+	},
+}
