@@ -67,7 +67,7 @@ Row {
                     text: {
                         var id = modelData.id;
                         if (id === 1) return "󰣇";
-                        if (id === 2) return "󰈹";
+                        if (id === 2) return "";
                         if (id === 3) return "";
                         if (id === 4) return "";
                         if (id === 5) return "󰓇";

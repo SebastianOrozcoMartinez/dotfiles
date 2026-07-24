@@ -35,6 +35,7 @@ Row {
             QsMenuAnchor {
                 id: menuAnchor
                 menu: modelData.menu
+                anchor.item: itemArea
             }
 
             onClicked: (mouse) => {
