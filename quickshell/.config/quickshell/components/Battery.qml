@@ -138,7 +138,7 @@ MouseArea {
         }
 
         implicitWidth: root.targetSector ? root.targetSector.width : 220
-        implicitHeight: popupContent.implicitHeight + 24
+        implicitHeight: popupContent.implicitHeight + 24 + 6
         color: "transparent"
 
         function open() {
@@ -171,7 +171,10 @@ MouseArea {
 
         Rectangle {
             id: popupCard
-            anchors.fill: parent
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            height: popupContent.implicitHeight + 24
             radius: 10
             color: Qt.rgba(Theme.background.r, Theme.background.g, Theme.background.b, 0.75)
             border.width: 1

@@ -198,7 +198,7 @@ MouseArea {
 
         // Match the width of the entire target sector dynamically
         implicitWidth: root.targetSector ? root.targetSector.width : 220
-        implicitHeight: contentColumn.implicitHeight + 24
+        implicitHeight: contentColumn.implicitHeight + 24 + 6
         color: "transparent"
 
         function open() {
@@ -231,7 +231,10 @@ MouseArea {
 
         Rectangle {
             id: popupCard
-            anchors.fill: parent
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            height: contentColumn.implicitHeight + 24
             radius: 10
             color: Qt.rgba(Theme.background.r, Theme.background.g, Theme.background.b, 0.75)
             border.width: 1
