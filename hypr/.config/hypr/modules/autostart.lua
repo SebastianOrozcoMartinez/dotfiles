@@ -11,6 +11,7 @@ hl.on("hyprland.start", function()
 	-- Battery management
 	hl.exec_cmd("~/.local/bin/power-auto")
 
+	hl.exec_cmd("hyprsunset &")
 	hl.exec_cmd("awww-daemon &")
 	hl.exec_cmd("blueman-applet &")
 	hl.exec_cmd("openrgb --server &")
