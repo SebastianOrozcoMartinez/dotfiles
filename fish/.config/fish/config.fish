@@ -25,7 +25,6 @@ alias um "udisksctl unmount -b"
 alias fetch neofetch
 alias s "yay -Ss"
 alias S "yay -S --noconfirm"
-alias wal "wal; source ~/.config/fish/config.fish"
 function venv
     set dir (pwd)
 
