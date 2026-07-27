@@ -48,7 +48,7 @@ element-icon {
     size: 4em;
     horizontal-align: 0.5;
     margin: 0px 0px 6px 0px;
-    border-radius: 8px;
+    border-radius: 12px;
 }
 
 element-text {
