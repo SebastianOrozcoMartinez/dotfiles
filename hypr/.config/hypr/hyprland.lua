@@ -11,6 +11,7 @@ require("modules.binds")
 require("modules.rules")
 require("modules.autostart")
 require("modules.animations")
+require("modules.gestures")
 
 hl.config(require("modules.appearance"))
 hl.config(require("modules.input"))
