@@ -17,6 +17,7 @@ hl.monitor({
 	mode = "1920x1080@75",
 	position = "1920x0",
 	scale = 1,
+	vrr = 2,
 })
 
 hl.config({
