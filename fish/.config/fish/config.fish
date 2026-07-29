@@ -25,6 +25,8 @@ alias um "udisksctl unmount -b"
 alias fetch neofetch
 alias s "yay -Ss"
 alias S "yay -S --noconfirm"
+alias cat bat
+
 function venv
     set dir (pwd)
 
