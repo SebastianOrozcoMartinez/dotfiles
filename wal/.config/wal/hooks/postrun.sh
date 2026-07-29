@@ -5,7 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 # Wallpaper
 if [ -n "$1" ]; then
   awww img "$1" \
-    --transition-type=wipe \
+    --transition-type=center \
     --transition-duration=2 \
     --transition-fps=144 \
     --transition-step=30
