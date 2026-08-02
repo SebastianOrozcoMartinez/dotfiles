@@ -1,3 +1,11 @@
 @import '../../.cache/wal/colors-waybar.css';
+
+/* Accent palette — edit these to customize */
+@define-color accent        @color3;
+@define-color accent-hover  alpha(@accent, 0.35);
+@define-color bg-alt        alpha(@color8, 0.3);
+@define-color border-color  alpha(@color8, 0.25);
+@define-color urgent        @color9;
+
 @import 'themes/nova-dark/notifications.css';
 @import 'themes/nova-dark/central_control.css';
