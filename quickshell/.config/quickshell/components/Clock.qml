@@ -13,18 +13,17 @@ MouseArea {
         color: Theme.primary
         font.pixelSize: Theme.fontSize
         font.bold: true
-        font.family: Theme.fontFamily
+        textFormat: Text.RichText
 
         Behavior on color { ColorAnimation { duration: 400 } }
 
         function updateTime() {
             var date = new Date();
-            if (clockArea.containsMouse) {
-                timeText.text = "󰃭  " + date.toLocaleDateString(Qt.locale(), "ddd, MMM d");
-            } else {
-                timeText.text = "󱑎  " + date.toLocaleTimeString(Qt.locale(), "hh:mm AP");
-
-            }
+            var icon = clockArea.containsMouse ? "󰃭" : "󱑎";
+            var label = clockArea.containsMouse
+                ? date.toLocaleDateString(Qt.locale(), "ddd, MMM d")
+                : date.toLocaleTimeString(Qt.locale(), "hh:mm AP");
+            timeText.text = "<span style=\"font-family:'" + Theme.iconFontFamily + "', 'Maple Mono NF';\">" + icon + "</span>&nbsp;&nbsp;" + label;
         }
 
         Timer {

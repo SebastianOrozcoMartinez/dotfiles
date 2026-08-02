@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.Pipewire
 import "../theme"
@@ -27,7 +28,7 @@ MouseArea {
         return "";
     }
 
-    Row {
+    RowLayout {
         id: contentRow
         spacing: 6
         anchors.verticalCenter: parent.verticalCenter
@@ -37,6 +38,7 @@ MouseArea {
             color: root.muted ? Theme.color9 : Theme.accent
             font.pixelSize: Theme.fontSize
             font.family: Theme.iconFontFamily
+            Layout.alignment: Qt.AlignBaseline
 
             Behavior on color { ColorAnimation { duration: 400 } }
         }
@@ -46,6 +48,7 @@ MouseArea {
             color: Theme.foreground
             font.pixelSize: Theme.fontSize
             font.family: Theme.fontFamily
+            Layout.alignment: Qt.AlignBaseline
 
             Behavior on color { ColorAnimation { duration: 400 } }
         }

@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import "../theme"
@@ -98,7 +99,7 @@ MouseArea {
         }
     }
 
-    Row {
+    RowLayout {
         id: contentRow
         spacing: 6
         anchors.verticalCenter: parent.verticalCenter
@@ -106,8 +107,9 @@ MouseArea {
         Text {
             text: root.icon
             color: root.percentage < 20 && root.status !== "Charging" ? Theme.color9 : Theme.accent
-            font.pixelSize: Theme.fontSize
+            font.pixelSize: Theme.fontSize - 2
             font.family: Theme.iconFontFamily
+            Layout.alignment: Qt.AlignBaseline
 
             Behavior on color { ColorAnimation { duration: 400 } }
         }
@@ -118,6 +120,7 @@ MouseArea {
             font.pixelSize: Theme.fontSize
             font.bold: true
             font.family: Theme.fontFamily
+            Layout.alignment: Qt.AlignBaseline
 
             Behavior on color { ColorAnimation { duration: 400 } }
         }

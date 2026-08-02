@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import "../theme"
@@ -74,7 +75,7 @@ Item {
         }
     }
 
-    Row {
+    RowLayout {
         id: contentRow
         spacing: 6
         anchors.verticalCenter: parent.verticalCenter
@@ -84,6 +85,7 @@ Item {
             color: Theme.primary
             font.pixelSize: Theme.fontSize
             font.family: Theme.iconFontFamily
+            Layout.alignment: Qt.AlignBaseline
 
             Behavior on color { ColorAnimation { duration: 400 } }
         }
@@ -93,6 +95,7 @@ Item {
             color: Theme.foreground
             font.pixelSize: Theme.fontSize
             font.family: Theme.fontFamily
+            Layout.alignment: Qt.AlignBaseline
 
             Behavior on color { ColorAnimation { duration: 400 } }
         }

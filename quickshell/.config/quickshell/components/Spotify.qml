@@ -1,5 +1,6 @@
 import QtQuick
 import Qt5Compat.GraphicalEffects
+import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import "../theme"
@@ -156,7 +157,7 @@ MouseArea {
         }
     }
 
-    Row {
+    RowLayout {
         id: contentRow
         spacing: 8
         anchors.verticalCenter: parent.verticalCenter
@@ -166,6 +167,7 @@ MouseArea {
             color: root.status === "Playing" ? Theme.accent : Theme.muted
             font.pixelSize: Theme.fontSize
             font.family: Theme.iconFontFamily
+            Layout.alignment: Qt.AlignBaseline
 
             Behavior on color { ColorAnimation { duration: 400 } }
         }
@@ -177,7 +179,9 @@ MouseArea {
             font.pixelSize: Theme.fontSize
             font.family: Theme.fontFamily
             elide: Text.ElideRight
-            width: Math.min(180, implicitWidth)
+            Layout.alignment: Qt.AlignBaseline
+            Layout.preferredWidth: Math.min(180, implicitWidth)
+            Layout.maximumWidth: 180
 
             Behavior on color { ColorAnimation { duration: 400 } }
         }
