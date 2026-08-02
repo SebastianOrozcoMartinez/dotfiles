@@ -1,22 +1,10 @@
-@define-color text            @foreground;
-@define-color background-alt  @color1;
-@define-color selected        @color3;
-@define-color hover           @color5;
-@define-color urgent          @color2;
-
 * {
-  /*background-alt:        @color1;      Buttons background */
-  /*selected:              @color2;      Button selected */
-  /*hover:                 @color5;      Hover button */
-  /*urgent:                @color6;      Urgency critical */
-  /*text-selected:         @background; */
-
-  color: @text;
+  color: @foreground;
 
   all: unset;
-  font-size: 14px;
-  font-family: "Google Sans Flex", "JetBrainsMono Nerd Font Propo";
-  transition: 200ms;
+  font-size: 17px;
+  font-family: "Rubik", "Maple Mono NF Propo";
+  transition: 400ms;
 }
 
 .notification-row {
@@ -26,9 +14,10 @@
 }
 
 .floating-notifications.background .notification-row .notification-background {
-  background: alpha(@background, 0.55);
+  background: alpha(@background, 0.75);
+  border: 1px solid @border-color;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
+  border-radius: 12px;
   margin: 16px;
   padding: 0;
 }
@@ -38,7 +27,7 @@
   .notification-background
   .notification {
   padding: 6px;
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 .floating-notifications.background
@@ -73,7 +62,7 @@
   > *
   .notification-action {
   border-radius: 8px;
-  background-color: @background-alt;
+  background-color: @bg-alt;
   margin: 6px;
   border: 1px solid transparent;
 }
@@ -85,8 +74,8 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @hover;
-  border: 1px solid @selected;
+  background-color: @accent-hover;
+  border: 1px solid @accent;
 }
 
 .floating-notifications.background
@@ -96,7 +85,7 @@
   > *:last-child
   > *
   .notification-action:active {
-  background-color: @selected;
+  background-color: @accent;
   color: @background;
 }
 
@@ -105,12 +94,12 @@
 }
 
 .summary {
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1rem;
 }
 
 .body {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .floating-notifications.background
@@ -119,7 +108,7 @@
   .close-button {
   margin: 6px;
   padding: 2px;
-  border-radius: 6px;
+  border-radius: 8px;
   background-color: transparent;
   border: 1px solid transparent;
 }
@@ -128,22 +117,22 @@
   .notification-row
   .notification-background
   .close-button:hover {
-  background-color: @selected;
+  background-color: @accent;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .close-button:active {
-  background-color: @selected;
+  background-color: @accent;
   color: @background;
 }
 
 .notification.critical progress {
-  background-color: @selected;
+  background-color: @accent;
 }
 
 .notification.low progress,
 .notification.normal progress {
-  background-color: @selected;
+  background-color: @accent;
 }

@@ -59,7 +59,7 @@ Item {
     readonly property color muted: color4
 
     // Typography
-    readonly property string fontFamily: "Google Sans Flex"
-    readonly property string iconFontFamily: "Maple Mono NF"
+    readonly property string fontFamily: "Rubik"
+    readonly property string iconFontFamily: "Maple Mono NF Propo"
     readonly property real fontSize: 17
 }
