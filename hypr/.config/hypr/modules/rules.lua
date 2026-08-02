@@ -74,6 +74,7 @@ hl.layer_rule({
 	},
 
 	blur = true,
+	blur_popups = true,
 	ignore_alpha = 0.5,
 })
 
@@ -95,4 +96,24 @@ hl.window_rule({
 	size = "640 360",
 
 	keep_aspect_ratio = true,
+})
+
+hl.window_rule({
+	name = "nautilus-glass",
+
+	match = {
+		class = "^(org.gnome.Nautilus)$",
+	},
+
+	opacity = 0.85,
+})
+
+hl.window_rule({
+	name = "overskride-glass",
+
+	match = {
+		class = "^(io.github.kaii_lb.Overskride)$",
+	},
+
+	opacity = 0.85,
 })
