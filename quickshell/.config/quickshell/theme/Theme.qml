@@ -58,6 +58,15 @@ Item {
     readonly property color primary: color3
     readonly property color muted: color4
 
+    function interpolateColor(from, to, t) {
+        return Qt.rgba(
+            from.r + (to.r - from.r) * t,
+            from.g + (to.g - from.g) * t,
+            from.b + (to.b - from.b) * t,
+            from.a + (to.a - from.a) * t
+        );
+    }
+
     // Typography
     readonly property string fontFamily: "Rubik"
     readonly property string iconFontFamily: "Maple Mono NF Propo"

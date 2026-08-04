@@ -55,6 +55,15 @@ MouseArea {
         return "";
     }
 
+    readonly property color capacityColor: {
+        if (status === "Charging") return Theme.color4;
+        if (percentage <= 20) return Theme.color11;
+        if (percentage <= 50) {
+            return Theme.interpolateColor(Theme.color11, Theme.color5, (percentage - 20) / 30);
+        }
+        return Theme.interpolateColor(Theme.color5, Theme.color4, (percentage - 50) / 50);
+    }
+
     // Diagnostics and detailed info query
     property string timeText: "Time: N/A"
     property string powerMode: "balanced"
@@ -106,7 +115,7 @@ MouseArea {
 
         Text {
             text: root.icon
-            color: root.percentage < 20 && root.status !== "Charging" ? Theme.color9 : Theme.accent
+            color: root.capacityColor
             font.pixelSize: Theme.fontSize - 2
             font.family: Theme.iconFontFamily
             Layout.alignment: Qt.AlignBaseline
@@ -116,7 +125,7 @@ MouseArea {
 
         Text {
             text: root.percentage + "%"
-            color: Theme.foreground
+            color: root.capacityColor
             font.pixelSize: Theme.fontSize
             font.bold: true
             font.family: Theme.fontFamily
@@ -205,22 +214,16 @@ MouseArea {
 
                         property real arcAngle: root.percentage / 100.0
 
-                        readonly property color ringColor: {
-                            if (root.status === "Charging") return Theme.color4;
-                            if (root.percentage <= 15) return Theme.color3;
-                            if (root.percentage <= 30) return Theme.color3;
-                            if (root.percentage <= 60) return Theme.color5;
-                            return Theme.color4;
-                        }
+                        readonly property color ringColor: root.capacityColor
 
                         onArcAngleChanged: requestPaint()
                         onRingColorChanged: requestPaint()
                         Connections {
                             target: Theme
                             function onForegroundChanged() { batteryRing.requestPaint() }
-                            function onColor3Changed() { batteryRing.requestPaint() }
                             function onColor4Changed() { batteryRing.requestPaint() }
                             function onColor5Changed() { batteryRing.requestPaint() }
+                            function onColor11Changed() { batteryRing.requestPaint() }
                         }
                         Component.onCompleted: requestPaint()
                         onPaint: {

@@ -28,6 +28,14 @@ MouseArea {
         return "";
     }
 
+    readonly property color volumeColor: {
+        if (muted) return Theme.color9;
+        if (percentage >= 66) return Theme.color4;
+        if (percentage >= 33) return Theme.color2;
+        if (percentage > 0) return Theme.color11;
+        return Theme.color9;
+    }
+
     RowLayout {
         id: contentRow
         spacing: 6
@@ -35,7 +43,7 @@ MouseArea {
 
         Text {
             text: root.icon
-            color: root.muted ? Theme.color9 : Theme.accent
+            color: root.volumeColor
             font.pixelSize: Theme.fontSize
             font.family: Theme.iconFontFamily
             Layout.alignment: Qt.AlignBaseline

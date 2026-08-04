@@ -13,6 +13,14 @@ Item {
     property int signal: 0
     property string icon: "󰤮"
 
+    readonly property color signalColor: {
+        if (root.ssid === "Disconnected") return Theme.color9;
+        if (root.signal >= 75) return Theme.color4;
+        if (root.signal >= 50) return Theme.color2;
+        if (root.signal >= 25) return Theme.color11;
+        return Theme.color9;
+    }
+
     function parseOutput(data) {
         var lines = data.trim().split("\n");
         if (lines.length > 0 && lines[0] !== "") {
@@ -65,7 +73,7 @@ Item {
 
         Text {
             text: root.icon
-            color: root.ssid === "Disconnected" ? Theme.color9 : Theme.accent
+            color: root.signalColor
             font.pixelSize: Theme.fontSize
             font.family: Theme.iconFontFamily
             Layout.alignment: Qt.AlignBaseline
