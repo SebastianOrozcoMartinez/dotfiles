@@ -26,11 +26,46 @@ def find_lid_device():
     return None
 
 
+PROFILE_FILE = os.path.join(
+    os.environ.get("XDG_RUNTIME_DIR", "/tmp"), "lid-handler-profile"
+)
+POWER_SAVER = "power-saver"
+
+
 def run(*args):
     subprocess.run(args, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
+def get_profile():
+    out = subprocess.run(
+        ["powerprofilesctl", "get"], capture_output=True, text=True
+    )
+    return out.stdout.strip() or None
+
+
+def set_profile(name):
+    run("powerprofilesctl", "set", name)
+
+
+def save_profile():
+    if not os.path.exists(PROFILE_FILE):
+        current = get_profile()
+        if current:
+            open(PROFILE_FILE, "w").write(current)
+
+
+def restore_profile():
+    try:
+        previous = open(PROFILE_FILE).read().strip()
+        if previous:
+            set_profile(previous)
+    finally:
+        os.path.exists(PROFILE_FILE) and os.remove(PROFILE_FILE)
+
+
 def on_close():
+    save_profile()
+    set_profile(POWER_SAVER)
     subprocess.Popen(
         ["hyprlock"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
     )
@@ -39,6 +74,7 @@ def on_close():
 
 
 def on_open():
+    restore_profile()
     run("hyprctl", "dispatch", 'hl.dsp.dpms({ action = "enable" })')
 
 
