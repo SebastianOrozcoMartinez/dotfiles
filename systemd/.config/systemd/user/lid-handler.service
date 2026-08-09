@@ -1,0 +1,9 @@
+[Unit]
+Description=Lid close/open handler
+
+[Service]
+ExecStart=%h/.local/bin/lid-handler
+Restart=always
+
+[Install]
+WantedBy=default.target
