@@ -99,20 +99,16 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	name = "nautilus-glass",
+	name = "glass",
 
 	match = {
-		class = "^(org.gnome.Nautilus)$",
-	},
-
-	opacity = 0.85,
-})
-
-hl.window_rule({
-	name = "overskride-glass",
-
-	match = {
-		class = "^(io.github.kaii_lb.Overskride)$",
+		class = "^("
+			.. "org.gnome.Nautilus"
+			.. "|io.github.kaii_lb.Overskride"
+			.. "|org.pulseaudio.pavucontrol"
+			.. "|org.gnome.Calendar"
+			.. "|org.gnome.Contacts"
+			.. ")$",
 	},
 
 	opacity = 0.85,
