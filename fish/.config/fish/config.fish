@@ -26,6 +26,7 @@ alias fetch neofetch
 alias s "yay -Ss"
 alias S "yay -S --noconfirm"
 alias cat bat
+alias tree "lsd --tree"
 
 function venv
     set dir (pwd)
@@ -70,3 +71,6 @@ end
 
 # Added by Antigravity CLI installer
 set -gx PATH "/home/sebas/.local/bin" $PATH
+
+# Zoxideee
+zoxide init --cmd cd fish | source
