@@ -9,8 +9,6 @@ local mainMod = "SUPER"
 local ctrl = "CTRL"
 
 local menu = "rofi -show drun"
-local themeChanger = "~/scripts/wal2/walmenu2.fish"
-local barChanger = "~/scripts/wal2/setbar.fish"
 
 local function bind(combo, dispatcher, opts)
 	hl.bind(combo, dispatcher, opts)
@@ -39,8 +37,7 @@ bind(mainMod .. " + P", hl.dsp.window.pseudo())
 exec(mainMod .. " + SHIFT + L", "hyprlock")
 exec(mainMod .. " + SHIFT + T", "udevadm trigger --subsystem-match=input --action=change")
 
-exec(ctrl .. " + space", themeChanger)
-exec(ctrl .. " + SHIFT + space", barChanger)
+exec(ctrl .. " + space", "~/.config/hypr/scripts/walmenu2.fish")
 
 exec(mainMod .. " + W", "~/scripts/rofi-wifi-menu.sh")
 
