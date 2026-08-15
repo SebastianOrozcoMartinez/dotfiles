@@ -127,7 +127,7 @@ function main
             if test -f "$full_path"
                 echo "Setting wallpaper: $full_path"
                 wal -i "$full_path"
-                ~/.config/wal/hooks/postrun.sh
+                ~/.config/wal/hooks/postrun.sh "$full_path"
                 exit 0
             else
                 echo "File not found: $full_path"
