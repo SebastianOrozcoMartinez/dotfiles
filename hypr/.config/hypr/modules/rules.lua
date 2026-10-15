@@ -103,7 +103,8 @@ hl.window_rule({
 
 	match = {
 		class = "^("
-			.. "org.gnome.Nautilus"
+			.. "md.obsidian.Obsidian"
+			.. "|org.gnome.Nautilus"
 			.. "|io.github.kaii_lb.Overskride"
 			.. "|org.pulseaudio.pavucontrol"
 			.. "|org.gnome.Calendar"

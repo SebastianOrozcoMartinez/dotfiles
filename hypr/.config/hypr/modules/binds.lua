@@ -39,8 +39,6 @@ exec(mainMod .. " + SHIFT + T", "udevadm trigger --subsystem-match=input --actio
 
 exec(ctrl .. " + space", "~/.config/hypr/scripts/walmenu2.fish")
 
-exec(mainMod .. " + W", "~/scripts/rofi-wifi-menu.sh")
-
 exec(mainMod .. " + Print", "hyprshot -m region --clipboard-only")
 exec(mainMod .. " + SHIFT + Print", "hyprpicker | wl-copy")
 

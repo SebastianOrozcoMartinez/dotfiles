@@ -19,7 +19,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("vesktop --start-minimized &")
 	hl.exec_cmd("zapzap &")
 	hl.exec_cmd("kdeconnect-indicator &")
-	hl.exec_cmd("localsend &")
 	hl.exec_cmd("qs &")
 end)
 
