@@ -163,7 +163,7 @@ MouseArea {
         anchors.verticalCenter: parent.verticalCenter
 
         Text {
-            text: root.status === "Playing" ? "󰓇" : "󰓇"
+            text: root.status === "Playing" ? "" : ""
             color: root.status === "Playing" ? Theme.accent : Theme.muted
             font.pixelSize: Theme.fontSize
             font.family: Theme.iconFontFamily

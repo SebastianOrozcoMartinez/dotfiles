@@ -70,7 +70,7 @@ Row {
                         if (id === 2) return "";
                         if (id === 3) return "";
                         if (id === 4) return "";
-                        if (id === 5) return "󰓇";
+                        if (id === 5) return "";
                         return "";
                     }
 
