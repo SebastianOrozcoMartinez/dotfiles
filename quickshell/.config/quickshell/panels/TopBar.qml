@@ -112,6 +112,15 @@ PanelWindow {
                 visible: trayWidget.visible
             }
 
+            Notifications {}
+
+            Rectangle {
+                width: 1
+                height: 14
+                color: Qt.rgba(Theme.color8.r, Theme.color8.g, Theme.color8.b, 0.4)
+                anchors.verticalCenter: parent.verticalCenter
+            }
+
             Wifi {}
 
             Rectangle {
