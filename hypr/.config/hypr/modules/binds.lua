@@ -8,7 +8,7 @@
 local mainMod = "SUPER"
 local ctrl = "CTRL"
 
-local menu = "rofi -show drun"
+local menu = "rofi -drun-reload-desktop-cache -show drun"
 
 local function bind(combo, dispatcher, opts)
 	hl.bind(combo, dispatcher, opts)
@@ -37,7 +37,14 @@ bind(mainMod .. " + P", hl.dsp.window.pseudo())
 exec(mainMod .. " + SHIFT + L", "hyprlock")
 exec(mainMod .. " + SHIFT + T", "udevadm trigger --subsystem-match=input --action=change")
 
-exec(ctrl .. " + space", "~/.config/hypr/scripts/walmenu2.fish")
+bind(ctrl .. " + space", function()
+	local win = hl.get_active_window()
+	if win and win.fullscreen >= 2 then
+		hl.dispatch(hl.dsp.no_op())
+		return
+	end
+	hl.dispatch(hl.dsp.exec_cmd("~/.config/hypr/scripts/walmenu2.fish"))
+end)
 
 exec(mainMod .. " + Print", "hyprshot -m region --clipboard-only")
 exec(mainMod .. " + SHIFT + Print", "hyprpicker | wl-copy")
