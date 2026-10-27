@@ -16,6 +16,10 @@ Row {
 
             readonly property bool isAssigned: modelData.id >= 1 && modelData.id <= 5
 
+            // Special workspaces use negative ids / "special:" names in Hyprland
+            readonly property bool isSpecial: modelData.id < 0 ||
+                (modelData.name && modelData.name.indexOf("special:") === 0)
+
             // Filter workspaces: only show workspaces assigned to the same monitor as this TopBar window
             readonly property bool isCorrectMonitor: {
                 var barMonitor = Hyprland.monitorFor(topbarWindow.screen);
@@ -23,8 +27,10 @@ Row {
                 return modelData.monitor && modelData.monitor.name === barMonitor.name;
             }
 
-            visible: isCorrectMonitor
-            width: isCorrectMonitor ? (modelData.focused ? 36 : (isAssigned ? 24 : 10)) : 0
+            readonly property bool shouldShow: isCorrectMonitor && !isSpecial
+
+            visible: shouldShow
+            width: shouldShow ? (modelData.focused ? 36 : (isAssigned ? 24 : 10)) : 0
 
             Behavior on width {
                 NumberAnimation { duration: 10; easing.type: Easing.OutBack }
