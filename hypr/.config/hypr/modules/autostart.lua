@@ -7,6 +7,9 @@
 hl.on("hyprland.start", function()
 	-- env
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+	hl.exec_cmd("hyprpm reload -n")
+	hl.exec_cmd('hyprctl setcursor "" 32')
+	hl.exec_cmd("hypridle &")
 
 	-- Battery management
 	hl.exec_cmd("~/.local/bin/power-auto")
