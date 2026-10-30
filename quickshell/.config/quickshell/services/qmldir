@@ -1,1 +1,2 @@
 singleton Swaync Swaync.qml
+singleton Osd Osd.qml

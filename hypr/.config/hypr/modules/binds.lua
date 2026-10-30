@@ -94,25 +94,25 @@ bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 exec(
 	"Control_R + Up",
-	"wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && ~/scripts/osd.sh",
+	"wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
 	{ locked = true, repeating = true }
 )
 
 exec(
 	"Control_R + Down",
-	"wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ~/scripts/osd.sh",
+	"wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
 	{ locked = true, repeating = true }
 )
 
 exec(
 	"XF86AudioRaiseVolume",
-	"wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && ~/scripts/osd.sh",
+	"wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
 	{ locked = true, repeating = true }
 )
 
 exec(
 	"XF86AudioLowerVolume",
-	"wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ~/scripts/osd.sh",
+	"wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
 	{ locked = true, repeating = true }
 )
 
@@ -124,9 +124,9 @@ exec("XF86AudioMicMute", "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle", { locke
 -- Brightness
 --------------------------------------------------
 
-exec("XF86MonBrightnessUp", "brightnessctl -e4 -n2 set 5%+", { locked = true, repeating = true })
+exec("XF86MonBrightnessUp", "qs ipc call osd brightnessUp 2>/dev/null || brightnessctl -e4 -n2 set 5%+", { locked = true, repeating = true })
 
-exec("XF86MonBrightnessDown", "brightnessctl -e4 -n2 set 5%-", { locked = true, repeating = true })
+exec("XF86MonBrightnessDown", "qs ipc call osd brightnessDown 2>/dev/null || brightnessctl -e4 -n2 set 5%-", { locked = true, repeating = true })
 
 --------------------------------------------------
 -- Spotify

@@ -12,6 +12,10 @@ ShellRoot {
             TopBar {
                 screen: modelData
             }
+
+            OsdPanel {
+                screen: modelData
+            }
         }
     }
 }
