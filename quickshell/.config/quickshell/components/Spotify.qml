@@ -26,6 +26,54 @@ MouseArea {
     // Wave animation counters
     property real timeCounter: 0
 
+    // Title bump animation state
+    property bool bumpReady: true
+
+    // Nudge the track title sideways to acknowledge a skip
+    function bumpTitle() {
+        if (!bumpReady) return;
+        bumpReady = false;
+        bumpCooldown.restart();
+        titleBump.restart();
+    }
+
+    Timer {
+        id: bumpCooldown
+        interval: 500
+        onTriggered: root.bumpReady = true
+    }
+
+    SequentialAnimation {
+        id: titleBump
+        NumberAnimation { target: bumpShift; property: "x"; to: 6; duration: 90; easing.type: Easing.OutQuad }
+        NumberAnimation { target: bumpShift; property: "x"; to: 0; duration: 240; easing.type: Easing.OutCubic }
+    }
+
+    // Small upward nudge while paused
+    function bumpPause() {
+        pauseBump.restart();
+    }
+
+    SequentialAnimation {
+        id: pauseBump
+        NumberAnimation { target: bumpShift; property: "y"; to: -4; duration: 90; easing.type: Easing.OutQuad }
+        NumberAnimation { target: bumpShift; property: "y"; to: 0; duration: 240; easing.type: Easing.OutCubic }
+    }
+
+    // Bump the title when the track changes (covers media keys / auto-advance)
+    onSongTitleChanged: if (songTitle !== "") bumpTitle()
+
+    // Bump up when playback is paused (covers keybinds and the popup button)
+    onStatusChanged: if (status === "Paused") bumpPause()
+
+    IpcHandler {
+        target: "spotify"
+
+        function next(): void { nextProc.running = true; }
+        function previous(): void { prevProc.running = true; }
+        function playPause(): void { playPauseProc.running = true; }
+    }
+
     Timer {
         id: waveTimer
         interval: 50
@@ -119,6 +167,7 @@ MouseArea {
         id: prevProc
         command: ["playerctl", "--player=spotify", "previous"]
         running: false
+        onRunningChanged: if (running) root.bumpTitle()
     }
 
     Process {
@@ -131,6 +180,7 @@ MouseArea {
         id: nextProc
         command: ["playerctl", "--player=spotify", "next"]
         running: false
+        onRunningChanged: if (running) root.bumpTitle()
     }
 
     Timer {
@@ -182,6 +232,12 @@ MouseArea {
             Layout.alignment: Qt.AlignBaseline
             Layout.preferredWidth: Math.min(180, implicitWidth)
             Layout.maximumWidth: 180
+
+            transform: Translate {
+                id: bumpShift
+                x: 0
+                y: 0
+            }
 
             Behavior on color { ColorAnimation { duration: 400 } }
         }

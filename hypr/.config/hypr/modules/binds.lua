@@ -132,19 +132,28 @@ exec("XF86MonBrightnessDown", "qs ipc call osd brightnessDown 2>/dev/null || bri
 -- Spotify
 --------------------------------------------------
 
-exec("XF86AudioNext", "playerctl -p spotify next", { locked = true })
+-- Route media keys through Quickshell so the bar can react immediately,
+-- falling back to playerctl when Quickshell isn't running.
+local function spotify(ipcAction, playerAction)
+	return "qs ipc show 2>/dev/null | grep -q '^target spotify$' && qs ipc call spotify "
+		.. ipcAction
+		.. " || playerctl -p spotify "
+		.. playerAction
+end
 
-exec("XF86AudioPause", "playerctl -p spotify play-pause", { locked = true })
+exec("XF86AudioNext", spotify("next", "next"), { locked = true })
 
-exec("XF86AudioPlay", "playerctl -p spotify play-pause", { locked = true })
+exec("XF86AudioPause", spotify("playPause", "play-pause"), { locked = true })
 
-exec("XF86AudioPrev", "playerctl -p spotify previous", { locked = true })
+exec("XF86AudioPlay", spotify("playPause", "play-pause"), { locked = true })
 
-exec("Control_R + Right", "playerctl -p spotify next", { locked = true })
+exec("XF86AudioPrev", spotify("previous", "previous"), { locked = true })
 
-exec("Control_R + Pause", "playerctl -p spotify play-pause", { locked = true })
+exec("Control_R + Right", spotify("next", "next"), { locked = true })
 
-exec("Control_R + Left", "playerctl -p spotify previous", { locked = true })
+exec("Control_R + Pause", spotify("playPause", "play-pause"), { locked = true })
+
+exec("Control_R + Left", spotify("previous", "previous"), { locked = true })
 
 --------------------------------------------------
 -- Notifications
