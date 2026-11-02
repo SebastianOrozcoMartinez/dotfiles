@@ -211,14 +211,18 @@ Item {
                 && device.state !== UPowerDeviceState.PendingDischarge)
             return;
 
-        var threshold = root.batteryThreshold(device.percentage);
+        // Quickshell's UPower percentage is a fraction in the range 0-1
+        // (e.g. 0.99 == 99%), so convert it to a whole percentage before use.
+        var percent = device.percentage * 100;
+
+        var threshold = root.batteryThreshold(percent);
         if (threshold === 0 || threshold >= root._batteryWarned)
             return;
 
         root._batteryWarned = threshold;
 
         if (root.initialized)
-            root.showBattery(device.percentage, threshold);
+            root.showBattery(percent, threshold);
     }
 
     function batteryThreshold(percent) {
@@ -272,7 +276,7 @@ Item {
         if (device && device.ready) {
             if (device.state === UPowerDeviceState.Discharging
                     || device.state === UPowerDeviceState.PendingDischarge)
-                root._batteryWarned = root.batteryThreshold(device.percentage);
+                root._batteryWarned = root.batteryThreshold(device.percentage * 100);
             else
                 root._batteryWarned = 100;
         }
